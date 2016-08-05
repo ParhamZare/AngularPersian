@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Persian </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="angular.min.js"></script>
+    <script src="../dist/iPersian.js"></script>
+    <script src="iApp.js"></script>
+    <style>
+        .m10 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body ng-app="iApp" data-ng-controller="mainController">
+<div class="container">
+    <div class="row m10">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Convert Date Persian To Gregorian</div>
+                <div class="panel-body">
+                    {{persianNowDay|eDate}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Convert Date Gregorian To Persian</div>
+                <div class="panel-body">
+                    {{gregorianNowDay|pDate}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m10">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Convert Date Gregorian To Persian With Input</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="PToG">
+                                <input type="radio" ng-model="typeConvert" value="ptog" name="typeConvert" id="PToG">
+                                Persian To Gregorian
+                            </label>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="PToG">
+                                <input type="radio" ng-model="typeConvert" value="gtop" name="typeConvert" id="GToP">
+                                Gregorian To Persian
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            Date
+                        </div>
+                        <input type="text" ng-model="myDate" class="form-control">
+                        <div class="input-group-btn">
+                            <a href="javascript:;" class="btn btn-primary" ng-click="Convert()">Convert</a>
+                        </div>
+                    </div>
+                    <hr>
+                    {{Converted}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row m10">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Rial To Toman With Seprator</div>
+                <div class="panel-body">
+                    {{price|pPrice}} {{price|cPrice}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Rial To Toman With Seprator With Persian Number</div>
+                <div class="panel-body">
+                    {{price2|pPrice|pNumber}} {{price2|cPrice}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
